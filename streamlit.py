@@ -7,9 +7,13 @@ import os
 st.title("Weather Classification Analysis")
 
 # Load Dataset
-@st.cache
+@st.cache_data
 def load_data():
-    return pd.read_csv("klasifikasi_cuaca.csv")
+    file_path = "klasifikasi_cuaca.csv"
+    if not os.path.exists(file_path):
+        st.error(f"File {file_path} tidak ditemukan. Pastikan file berada di lokasi yang benar.")
+        st.stop()
+    return pd.read_csv(file_path)
 
 data = load_data()
 
