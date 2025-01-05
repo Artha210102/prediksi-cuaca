@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
 
 # Streamlit App Title
 st.title("Weather Classification Analysis")
@@ -28,7 +34,7 @@ options = st.sidebar.radio(
 if options == "Dataset Overview":
     st.subheader("Dataset Overview")
     st.write("### Dataset Information")
-    buffer = st.text_area("Dataset Info", data.info(buf=None))  # Dataset info
+    st.write(data.head())
     st.write("### Descriptive Statistics")
     st.write(data.describe())
     st.write("### Missing Values")
