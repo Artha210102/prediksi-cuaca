@@ -1,5 +1,3 @@
-
-
 # Streamlit App Title
 st.title("Weather Classification Analysis")
 
